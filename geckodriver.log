@@ -61,3 +61,9 @@ Error: no DISPLAY environment variable specified
 1604936626453	geckodriver	INFO	Listening on 127.0.0.1:56631
 1604936626455	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileYhvR2l"
 Error: no DISPLAY environment variable specified
+1604946402346	geckodriver	INFO	Listening on 127.0.0.1:36095
+1604946402348	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilehLF6qh"
+Error: no DISPLAY environment variable specified
+1604948639371	geckodriver	INFO	Listening on 127.0.0.1:44055
+1604948639374	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileLAmJQx"
+Error: no DISPLAY environment variable specified
