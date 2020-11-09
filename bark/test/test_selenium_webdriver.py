@@ -8,7 +8,7 @@ from time import sleep
 #Fixture for Firefox
 @pytest.fixture(scope="class")
 def driver_init(request):
-    ff_driver = webdriver.Firefox(executable_path='C:/Users/barke/Downloads/geckodriver.exe')
+    ff_driver = webdriver.Firefox()
     request.cls.driver = ff_driver
     yield
     ff_driver.close()
@@ -16,7 +16,9 @@ def driver_init(request):
 #Fixture for Chrome
 @pytest.fixture(scope="class")
 def chrome_driver_init(request):
-    chrome_driver = webdriver.Chrome(executable_path='C:/Users/barke/Downloads/chromedriver.exe')
+    chrome_options = Options()  
+    chrome_options.add_argument("--headless")
+    chrome_driver = webdriver.Chrome(options=chrome_options, executable_path=r'/usr/bin/chromedriver')
     request.cls.driver = chrome_driver
     yield
     chrome_driver.close()
