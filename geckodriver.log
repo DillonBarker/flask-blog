@@ -124,3 +124,20 @@ Error: no DISPLAY environment variable specified
 1605006675250	geckodriver	INFO	Listening on 127.0.0.1:35891
 1605006675252	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileIs1Ldc"
 Error: no DISPLAY environment variable specified
+1605006759636	geckodriver	INFO	Listening on 127.0.0.1:47359
+1605006760639	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileB7MxzV"
+Error: no DISPLAY environment variable specified
+1605006838635	geckodriver	INFO	Listening on 127.0.0.1:54531
+1605006838636	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileFQ8nmD"
+Error: no DISPLAY environment variable specified
+1605007090848	geckodriver	INFO	Listening on 127.0.0.1:51513
+1605007090849	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileef5CvA"
+Error: no DISPLAY environment variable specified
+1605007260483	geckodriver	INFO	Listening on 127.0.0.1:34737
+1605007260485	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile0rx8Mt"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1605007261797	Marionette	INFO	Listening on port 33129
+1605007261901	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.google-analytics.com/analytics.js, line 1: SyntaxError: expected expression, got '<'
+1605007269026	Marionette	INFO	Stopped listening on port 33129

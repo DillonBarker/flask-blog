@@ -4,37 +4,26 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from time import sleep
-
 ###Using webdriver manager###
-
 #Chrome
 from webdriver_manager.chrome import ChromeDriverManager
 # browser = webdriver.Chrome(ChromeDriverManager().install())
 #Firefox
 from webdriver_manager.firefox import GeckoDriverManager
 # browser = webdriver.Firefox(executable_path=GeckoDriverManager().install())
-
-
-#Fixture for Firefox
-@pytest.fixture(scope="class")
+ 
+@pytest.fixture(params=["chrome"],scope="class")
 def driver_init(request):
-    ff_driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
-    request.cls.driver = ff_driver
+    if request.param == "chrome":
+        chrome_options = Options()
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument('--disable-dev-shm-usage')
+        web_driver = webdriver.Chrome(options=chrome_options, executable_path=ChromeDriverManager().install())
+    request.cls.driver = web_driver
     yield
-    ff_driver.close()
-
-#Fixture for Chrome
-@pytest.fixture(scope="class")
-def chrome_driver_init(request):
-    chrome_options = Options()
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--disable-dev-shm-usage')
-    chrome_driver = webdriver.Chrome(options=chrome_options, executable_path=ChromeDriverManager().install())
-    request.cls.driver = chrome_driver
-    yield
-    chrome_driver.close()
-
+    web_driver.close()
+ 
 @pytest.mark.usefixtures("driver_init")
 class BasicTest:
     pass
@@ -42,15 +31,5 @@ class Test_URL(BasicTest):
         def test_open_url(self):
             self.driver.get("https://www.lambdatest.com/")
             print(self.driver.title)
-
-            sleep(5)
-
-@pytest.mark.usefixtures("chrome_driver_init")
-class Basic_Chrome_Test:
-    pass
-class Test_URL_Chrome(Basic_Chrome_Test):
-        def test_open_url(self):
-            self.driver.get("https://www.lambdatest.com/")
-            print(self.driver.title)
-
+ 
             sleep(5)
