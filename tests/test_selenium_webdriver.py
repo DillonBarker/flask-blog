@@ -22,8 +22,8 @@ def driver_init(request):
 @pytest.mark.usefixtures("driver_init")
 class BasicTest:
     pass
+
 class Test_URL(BasicTest):
         def test_open_url(self):
             self.driver.get("https://www.lambdatest.com/")
             print(self.driver.title)
- 
