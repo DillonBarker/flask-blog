@@ -5,10 +5,20 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from time import sleep
 
+###Using webdriver manager###
+
+#Chrome
+from webdriver_manager.chrome import ChromeDriverManager
+# browser = webdriver.Chrome(ChromeDriverManager().install())
+#Firefox
+from webdriver_manager.firefox import GeckoDriverManager
+# browser = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+
+
 #Fixture for Firefox
 @pytest.fixture(scope="class")
 def driver_init(request):
-    ff_driver = webdriver.Firefox()
+    ff_driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
     request.cls.driver = ff_driver
     yield
     ff_driver.close()
@@ -16,9 +26,7 @@ def driver_init(request):
 #Fixture for Chrome
 @pytest.fixture(scope="class")
 def chrome_driver_init(request):
-    chrome_options = Options()  
-    chrome_options.add_argument("--headless")
-    chrome_driver = webdriver.Chrome(options=chrome_options, executable_path=r'/usr/bin/chromedriver')
+    chrome_driver = webdriver.Chrome(ChromeDriverManager().install())
     request.cls.driver = chrome_driver
     yield
     chrome_driver.close()
