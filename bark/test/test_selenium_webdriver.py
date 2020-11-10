@@ -26,7 +26,11 @@ def driver_init(request):
 #Fixture for Chrome
 @pytest.fixture(scope="class")
 def chrome_driver_init(request):
-    chrome_driver = webdriver.Chrome(ChromeDriverManager().install())
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    chrome_driver = webdriver.Chrome(options=chrome_options, executable_path=ChromeDriverManager().install())
     request.cls.driver = chrome_driver
     yield
     chrome_driver.close()
